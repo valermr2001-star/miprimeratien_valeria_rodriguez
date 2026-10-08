@@ -1,1 +1,1544 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi tienda</title>
+  <style>
+    /* =========================================
+       CORALINE — DELUXE CINEMATIC ECOMMERCE
+    ========================================= */
+
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+
+    /* =========================================
+       RESET
+    ========================================= */
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+
+      margin: 0;
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          #302d55 0%,
+          #171628 35%,
+          #090910 75%,
+          #050508 100%
+        );
+
+      color: #f4efe5;
+
+      font-family: 'Montserrat', sans-serif;
+
+      min-height: 100vh;
+    }
+
+
+    /* =========================================
+       HERO
+    ========================================= */
+
+    .hero {
+
+      position: relative;
+
+      min-height: 500px;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      overflow: hidden;
+
+      background:
+
+        linear-gradient(
+          180deg,
+          rgba(6,6,12,.30) 0%,
+          rgba(6,6,12,.55) 50%,
+          rgba(6,6,12,.96) 100%
+        ),
+
+        radial-gradient(
+          circle at 50% 45%,
+          #48416f 0%,
+          #1c1a35 45%,
+          #08080e 100%
+        );
+
+      border-bottom:
+        1px solid rgba(201,169,110,.30);
+    }
+
+
+    /* Luz central */
+
+    .hero::before {
+
+      content: "";
+
+      position: absolute;
+
+      width: 700px;
+
+      height: 700px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(95,75,150,.25),
+          transparent 68%
+        );
+
+      filter: blur(15px);
+
+    }
+
+
+    /* =========================================
+       CONTENIDO HERO
+    ========================================= */
+
+    .hero-content {
+
+      position: relative;
+
+      z-index: 2;
+
+      text-align: center;
+
+      padding: 80px 25px;
+
+      max-width: 900px;
+
+    }
+
+
+    .eyebrow {
+
+      display: block;
+
+      margin-bottom: 20px;
+
+      color: #c9a96e;
+
+      font-size: 10px;
+
+      font-weight: 600;
+
+      letter-spacing: 6px;
+
+    }
+
+
+    .hero h1 {
+
+      margin: 0;
+
+      font-family: 'Cinzel', serif;
+
+      font-size: clamp(
+        70px,
+        11vw,
+        140px
+      );
+
+      font-weight: 500;
+
+      letter-spacing: 7px;
+
+      color: #f5ead2;
+
+      text-shadow:
+
+        0 0 15px rgba(201,169,110,.15),
+
+        0 10px 35px rgba(0,0,0,.8);
+
+    }
+
+
+    .slogan {
+
+      margin:
+
+        25px auto 40px;
+
+      max-width: 650px;
+
+      color: #d2cdd0;
+
+      font-size: 16px;
+
+      font-weight: 300;
+
+      line-height: 1.7;
+
+      letter-spacing: 1px;
+
+    }
+
+
+    /* =========================================
+       BENEFICIOS
+    ========================================= */
+
+    .beneficios {
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      gap: 30px;
+
+      color: #aaa6b1;
+
+      font-size: 10px;
+
+      text-transform: uppercase;
+
+      letter-spacing: 2px;
+
+    }
+
+
+    .beneficios span {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 7px;
+
+    }
+
+
+    .beneficios span::first-letter {
+
+      color: #c9a96e;
+
+    }
+
+
+    /* =========================================
+       CATÁLOGO
+    ========================================= */
+
+    .catalogo {
+
+      max-width: 1250px;
+
+      margin: auto;
+
+      padding: 85px 25px 60px;
+
+    }
+
+
+    .section-title {
+
+      text-align: center;
+
+      margin-bottom: 55px;
+
+    }
+
+
+    .section-title span {
+
+      display: block;
+
+      margin-bottom: 12px;
+
+      color: #c9a96e;
+
+      font-size: 9px;
+
+      letter-spacing: 6px;
+
+    }
+
+
+    .section-title h2 {
+
+      margin: 0;
+
+      font-family: 'Cinzel', serif;
+
+      font-size: 34px;
+
+      font-weight: 500;
+
+      color: #f4efe7;
+
+    }
+
+
+    .section-title p {
+
+      max-width: 600px;
+
+      margin: 15px auto 0;
+
+      color: #888593;
+
+      font-size: 12px;
+
+      line-height: 1.7;
+
+    }
+
+
+    /* =========================================
+       GRID PRODUCTOS
+    ========================================= */
+
+    #productos {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(5, 1fr);
+
+      gap: 22px;
+
+    }
+
+
+    /* =========================================
+       TARJETA
+    ========================================= */
+
+    .producto {
+
+      position: relative;
+
+      overflow: hidden;
+
+      display: flex;
+
+      flex-direction: column;
+
+      min-width: 0;
+
+      background:
+
+        linear-gradient(
+          145deg,
+          rgba(45,43,68,.98),
+          rgba(14,14,24,.99)
+        );
+
+      border:
+        1px solid rgba(201,169,110,.20);
+
+      box-shadow:
+        0 20px 45px rgba(0,0,0,.35);
+
+      transition:
+        transform .4s ease,
+        border-color .4s ease,
+        box-shadow .4s ease;
+
+    }
+
+
+    .producto::after {
+
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+
+      left: 0;
+
+      right: 0;
+
+      height: 1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(201,169,110,.7),
+          transparent
+        );
+
+      opacity: .5;
+
+    }
+
+
+    .producto:hover {
+
+      transform:
+        translateY(-10px);
+
+      border-color:
+        rgba(201,169,110,.55);
+
+      box-shadow:
+
+        0 30px 70px rgba(0,0,0,.60),
+
+        0 0 30px rgba(201,169,110,.08);
+
+    }
+
+
+    /* =========================================
+       IMAGEN PRODUCTO
+    ========================================= */
+
+    .producto-imagen {
+
+      position: relative;
+
+      height: 280px;
+
+      overflow: hidden;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      background:
+
+        radial-gradient(
+          circle at 50% 45%,
+          #403b64 0%,
+          #1d1b32 45%,
+          #0c0c15 100%
+        );
+
+    }
+
+
+    .producto-imagen::after {
+
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,.05),
+          transparent 40%
+        );
+
+      pointer-events: none;
+
+    }
+
+
+    .producto-imagen img {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: contain;
+
+      padding: 18px;
+
+      transition:
+        transform .5s ease;
+
+    }
+
+
+    .producto:hover
+    .producto-imagen img {
+
+      transform:
+        scale(1.07);
+
+    }
+
+
+    /* =========================================
+       ETIQUETA
+    ========================================= */
+
+    .producto-overlay {
+
+      position: absolute;
+
+      top: 14px;
+
+      left: 14px;
+
+      z-index: 3;
+
+      padding:
+        6px 9px;
+
+      background:
+        rgba(8,8,15,.75);
+
+      border:
+        1px solid rgba(201,169,110,.40);
+
+      backdrop-filter:
+        blur(8px);
+
+    }
+
+
+    .producto-overlay span {
+
+      color: #c9a96e;
+
+      font-size: 7px;
+
+      letter-spacing: 1.5px;
+
+    }
+
+
+    /* =========================================
+       INFORMACIÓN
+    ========================================= */
+
+    .producto-info {
+
+      display: flex;
+
+      flex-direction: column;
+
+      flex: 1;
+
+      padding: 20px;
+
+    }
+
+
+    .producto-categoria {
+
+      margin-bottom: 8px;
+
+      color: #c9a96e;
+
+      font-size: 8px;
+
+      letter-spacing: 3px;
+
+    }
+
+
+    .producto-info h3 {
+
+      margin: 0 0 9px;
+
+      font-family: 'Cinzel', serif;
+
+      font-size: 16px;
+
+      font-weight: 500;
+
+      line-height: 1.35;
+
+      color: #f1ece4;
+
+    }
+
+
+    .producto-descripcion {
+
+      margin: 0 0 20px;
+
+      color: #8f8b98;
+
+      font-size: 10px;
+
+      line-height: 1.6;
+
+    }
+
+
+    /* =========================================
+       FOOTER PRODUCTO
+    ========================================= */
+
+    .producto-footer {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 10px;
+
+      margin-top: auto;
+
+    }
+
+
+    .producto-precio {
+
+      color: #dfc078;
+
+      font-family: 'Cinzel', serif;
+
+      font-size: 14px;
+
+      white-space: nowrap;
+
+    }
+
+
+    /* =========================================
+       BOTÓN AGREGAR
+    ========================================= */
+
+    .agregar {
+
+      width: auto;
+
+      margin: 0;
+
+      padding:
+        10px 12px;
+
+      background: transparent;
+
+      border:
+        1px solid rgba(201,169,110,.45);
+
+      color: #d6bc7d;
+
+      font-family: 'Montserrat', sans-serif;
+
+      font-size: 8px;
+
+      font-weight: 600;
+
+      letter-spacing: 1.2px;
+
+      text-transform: uppercase;
+
+      cursor: pointer;
+
+      transition: all .3s ease;
+
+    }
+
+
+    .agregar:hover {
+
+      background: #c9a96e;
+
+      color: #11100d;
+
+      border-color: #c9a96e;
+
+    }
+
+
+    /* =========================================
+       CARRITO
+    ========================================= */
+
+    .carrito {
+
+      position: relative;
+
+      max-width: 650px;
+
+      margin: 30px auto 90px;
+
+      padding: 42px;
+
+      background:
+
+        linear-gradient(
+          145deg,
+          rgba(43,41,66,.98),
+          rgba(14,14,24,.99)
+        );
+
+      border:
+        1px solid rgba(201,169,110,.35);
+
+      box-shadow:
+        0 35px 90px rgba(0,0,0,.60);
+
+    }
+
+
+    .carrito::before {
+
+      content: "";
+
+      position: absolute;
+
+      inset: 12px;
+
+      border:
+        1px solid rgba(201,169,110,.08);
+
+      pointer-events: none;
+
+    }
+
+
+    /* =========================================
+       HEADER CARRITO
+    ========================================= */
+
+    .carrito-header {
+
+      position: relative;
+
+      text-align: center;
+
+      margin-bottom: 30px;
+
+    }
+
+
+    .carrito-header span {
+
+      display: block;
+
+      margin-bottom: 10px;
+
+      color: #c9a96e;
+
+      font-size: 8px;
+
+      letter-spacing: 5px;
+
+    }
+
+
+    .carrito-header h2 {
+
+      margin: 0;
+
+      font-family: 'Cinzel', serif;
+
+      font-size: 25px;
+
+      font-weight: 500;
+
+    }
+
+
+    /* =========================================
+       LISTA
+    ========================================= */
+
+    #lista-carrito {
+
+      position: relative;
+
+      list-style: none;
+
+      padding: 0;
+
+      margin: 0;
+
+    }
+
+
+    #lista-carrito li {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 20px;
+
+      padding: 15px 0;
+
+      border-bottom:
+        1px solid rgba(255,255,255,.07);
+
+    }
+
+
+    .carrito-producto {
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 5px;
+
+    }
+
+
+    .carrito-producto strong {
+
+      color: #e5dfd6;
+
+      font-size: 12px;
+
+      font-weight: 500;
+
+    }
+
+
+    .carrito-producto span {
+
+      color: #c9a96e;
+
+      font-size: 10px;
+
+    }
+
+
+    /* =========================================
+       CANTIDAD
+    ========================================= */
+
+    .cantidad-control {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+    }
+
+
+    .cantidad-control button {
+
+      width: 27px;
+
+      height: 27px;
+
+      padding: 0;
+
+      margin: 0;
+
+      background: transparent;
+
+      border:
+        1px solid rgba(201,169,110,.30);
+
+      color: #c9a96e;
+
+      font-size: 15px;
+
+    }
+
+
+    .cantidad-control button:hover {
+
+      background: #c9a96e;
+
+      color: #111;
+
+    }
+
+
+    .cantidad-control span {
+
+      min-width: 18px;
+
+      text-align: center;
+
+      font-size: 11px;
+
+    }
+
+
+    /* =========================================
+       RESUMEN
+    ========================================= */
+
+    .resumen {
+
+      position: relative;
+
+      margin-top: 25px;
+
+    }
+
+
+    .resumen p {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      margin: 12px 0;
+
+      color: #96919e;
+
+      font-size: 12px;
+
+    }
+
+
+    .resumen strong {
+
+      color: #c9a96e;
+
+      font-weight: 500;
+
+    }
+
+
+    .linea {
+
+      height: 1px;
+
+      margin: 20px 0;
+
+      background:
+
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(201,169,110,.35),
+          transparent
+        );
+
+    }
+
+
+    .total {
+
+      color: #f2ede3 !important;
+
+      font-family: 'Cinzel', serif;
+
+      font-size: 20px !important;
+
+    }
+
+
+    .total span {
+
+      color: #dcb96f;
+
+    }
+
+
+    /* =========================================
+       BOTONES CARRITO
+    ========================================= */
+
+    .vaciar,
+    .finalizar {
+
+      position: relative;
+
+      width: 100%;
+
+      padding: 15px;
+
+      margin-top: 10px;
+
+      font-family: 'Montserrat', sans-serif;
+
+      font-size: 9px;
+
+      font-weight: 600;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      cursor: pointer;
+
+      transition: all .3s ease;
+
+    }
+
+
+    .vaciar {
+
+      background: transparent;
+
+      border:
+        1px solid rgba(255,255,255,.13);
+
+      color: #9995a0;
+
+    }
+
+
+    .vaciar:hover {
+
+      border-color: #c9a96e;
+
+      color: #c9a96e;
+
+    }
+
+
+    .finalizar {
+
+      background:
+
+        linear-gradient(
+          90deg,
+          #a98245,
+          #e2c47d,
+          #a98245
+        );
+
+      border: none;
+
+      color: #16120c;
+
+      box-shadow:
+        0 10px 30px rgba(201,169,110,.15);
+
+    }
+
+
+    .finalizar:hover {
+
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 15px 40px rgba(201,169,110,.30);
+
+    }
+
+
+    /* =========================================
+       SCROLLBAR
+    ========================================= */
+
+    ::-webkit-scrollbar {
+
+      width: 8px;
+
+    }
+
+
+    ::-webkit-scrollbar-track {
+
+      background: #07070c;
+
+    }
+
+
+    ::-webkit-scrollbar-thumb {
+
+      background: #3d3858;
+
+      border-radius: 10px;
+
+    }
+
+
+    ::-webkit-scrollbar-thumb:hover {
+
+      background: #c9a96e;
+
+    }
+
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 1100px) {
+
+      #productos {
+
+        grid-template-columns:
+          repeat(3, 1fr);
+
+      }
+
+    }
+
+
+    @media (max-width: 750px) {
+
+      #productos {
+
+        grid-template-columns:
+          repeat(2, 1fr);
+
+      }
+
+    }
+
+
+    @media (max-width: 500px) {
+
+      .hero {
+
+        min-height: 430px;
+
+      }
+
+
+      .hero h1 {
+
+        font-size: 60px;
+
+        letter-spacing: 3px;
+
+      }
+
+
+      .beneficios {
+
+        flex-direction: column;
+
+        gap: 12px;
+
+      }
+
+
+      #productos {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+      .producto-imagen {
+
+        height: 330px;
+
+      }
+
+
+      .carrito {
+
+        margin-left: 18px;
+
+        margin-right: 18px;
+
+        padding: 30px 22px;
+
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <!DOCTYPE html>
+  <html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Coraline | Colección Especial</title>
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+    <!-- ==============================
+         HERO
+    =============================== -->
+
+    <header class="hero">
+
+      <div class="hero-glow"></div>
+
+      <div class="hero-content">
+
+        <span class="eyebrow">
+          COLECCIÓN ESPECIAL
+        </span>
+
+        <h1>Coraline</h1>
+
+        <p class="slogan">
+          Una colección tan misteriosa como el Otro Mundo.
+        </p>
+
+        <div class="beneficios">
+
+          <span>✦ Envíos en Bogotá</span>
+
+          <span>✦ Compra segura</span>
+
+          <span>✦ Seguimiento de pedido</span>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- ==============================
+         PRODUCTOS
+    =============================== -->
+
+    <main class="catalogo">
+
+      <div class="section-title">
+
+        <span>THE OTHER WORLD</span>
+
+        <h2>Personajes que cobran vida</h2>
+
+        <p>
+          Descubre la colección y lleva contigo un pedacito del Otro Mundo.
+        </p>
+
+      </div>
+
+
+      <div id="productos"></div>
+
+    </main>
+
+
+    <!-- ==============================
+         CARRITO
+    =============================== -->
+
+    <section class="carrito">
+
+      <div class="carrito-header">
+
+        <span>YOUR COLLECTION</span>
+
+        <h2>🧵 Tu colección</h2>
+
+      </div>
+
+
+      <ul id="lista-carrito"></ul>
+
+
+      <div class="resumen">
+
+        <p>
+          Envío
+
+          <strong>
+            Gratis
+          </strong>
+        </p>
+
+
+        <div class="linea"></div>
+
+
+        <p class="total">
+
+          Total
+
+          <span>
+            $<span id="total">0</span>
+          </span>
+
+        </p>
+
+      </div>
+
+
+      <button
+        class="vaciar"
+        onclick="vaciarCarrito()"
+      >
+        Vaciar colección
+      </button>
+
+
+      <button
+        class="finalizar"
+        onclick="finalizarCompra()"
+      >
+        Finalizar compra ✦
+      </button>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+  </body>
+
+  </html>
+
+  <script>
+    const productos = [
+      {
+        id: 1,
+        nombre: "Funko pop coraline con gato",
+        descripcion: "¡Coraline y su inseparable gato, directo a tu colección!",
+        precio: 80000,
+        imagen: "https://m.media-amazon.com/images/I/71uZvtu3rJL.jpg"
+      },
+      {
+        id: 2,
+        nombre: "Funko Coraline & Mini Muñeca",
+        descripcion: "La pequeña muñeca que esconde un gran misterio.",
+        precio: 90000,
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhV3w7dVTBTM4L-X27W2JMWNrQy6BcMfn-TV-qBuLT8F3TOmBnTcwKyGg&s=10"
+      },
+      {
+        id: 3,
+        nombre: "La Otra Madre",
+        descripcion: "El encanto de la Otra Madre, ahora en tu colección.",
+        precio: 100000,
+        imagen: "https://i5.walmartimages.com/seo/Funko-POP-Movies-Coraline-Other-Mother_de95056a-1c4f-4767-9c1b-0e416b1b67ee_1.9aa4251eeaf2533e7e7dd90112f88caa.png"
+      },
+      {
+        id: 4,
+        nombre: "Las Hermanas Spink & Forcible",
+        descripcion: "El dúo más excéntrico de Coraline, ahora en tu colección.",
+        precio: 200000,
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYU5wBK_7u2eVQ_0wkZhiknmvlI-bJdXz3gyInrZv81F7sNbe59W7YJxY&s=10"
+      },
+      {
+        id: 5,
+        nombre: "Mr. Bobinskys",
+        descripcion: "El vecino más excéntrico de Coraline, listo para tu colección",
+        precio: 90000,
+        imagen: "https://m.media-amazon.com/images/I/71rKP-fTM6L._AC_UF894,1000_QL80_.jpg"
+      }
+    ];
+
+
+    /* ==============================
+       CARRITO
+    ================================ */
+
+    const carrito = [];
+
+    const contenedorProductos = document.getElementById("productos");
+    const listaCarrito = document.getElementById("lista-carrito");
+    const totalCarrito = document.getElementById("total");
+
+
+    /* ==============================
+       MOSTRAR PRODUCTOS
+    ================================ */
+
+    function mostrarProductos() {
+
+      contenedorProductos.innerHTML = "";
+
+      productos.forEach(prod => {
+
+        const div = document.createElement("div");
+
+        div.className = "producto";
+
+        div.innerHTML = `
+          <img src="${prod.imagen}" alt="${prod.nombre}">
+
+          <h3>${prod.nombre}</h3>
+
+          <p class="descripcion">
+            ${prod.descripcion}
+          </p>
+
+          <p class="precio">
+            ${prod.precio.toLocaleString("es-CO", {
+              style: "currency",
+              currency: "COP",
+              minimumFractionDigits: 0
+            })}
+          </p>
+
+          <button onclick="agregarAlCarrito(${prod.id})">
+            Agregar al carrito
+          </button>
+        `;
+
+        contenedorProductos.appendChild(div);
+
+      });
+
+    }
+
+
+    /* ==============================
+       AGREGAR AL CARRITO
+    ================================ */
+
+    function agregarAlCarrito(id) {
+
+      const productoExistente =
+        carrito.find(p => p.id === id);
+
+      if (productoExistente) {
+
+        productoExistente.cantidad++;
+
+      } else {
+
+        const producto =
+          productos.find(p => p.id === id);
+
+        carrito.push({
+          ...producto,
+          cantidad: 1
+        });
+
+      }
+
+      actualizarCarrito();
+
+    }
+
+
+    /* ==============================
+       ACTUALIZAR CARRITO
+    ================================ */
+
+    function actualizarCarrito() {
+
+      listaCarrito.innerHTML = "";
+
+      let total = 0;
+      let totalItems = 0;
+
+      carrito.forEach(item => {
+
+        const li =
+          document.createElement("li");
+
+        const subtotal =
+          item.precio * item.cantidad;
+
+        li.textContent =
+          `${item.nombre} x${item.cantidad} — ` +
+          subtotal.toLocaleString("es-CO", {
+            style: "currency",
+            currency: "COP",
+            minimumFractionDigits: 0
+          });
+
+        listaCarrito.appendChild(li);
+
+        total += subtotal;
+        totalItems += item.cantidad;
+
+      });
+
+      totalCarrito.textContent =
+        total.toLocaleString("es-CO");
+
+      actualizarTituloCarrito(totalItems);
+
+    }
+
+
+    /* ==============================
+       CONTADOR DEL CARRITO
+    ================================ */
+
+    function actualizarTituloCarrito(cantidad) {
+
+      const titulo =
+        document.querySelector(".carrito h2");
+
+      titulo.textContent =
+        `🧾 Carrito de Compras (${cantidad})`;
+
+    }
+
+
+    /* ==============================
+       VACIAR CARRITO
+    ================================ */
+
+    function vaciarCarrito() {
+
+      if (carrito.length === 0) {
+
+        alert("🛒 El carrito ya está vacío.");
+
+        return;
+
+      }
+
+      if (
+        confirm(
+          "¿Estás seguro de que quieres vaciar el carrito?"
+        )
+      ) {
+
+        carrito.length = 0;
+
+        actualizarCarrito();
+
+      }
+
+    }
+
+
+    /* ==============================
+       FINALIZAR COMPRA
+    ================================ */
+
+    function finalizarCompra() {
+
+      if (carrito.length === 0) {
+
+        alert(
+          "🛒 Tu carrito está vacío. Agrega productos antes de finalizar la compra."
+        );
+
+        return;
+
+      }
+
+      alert(
+        "🎉 ¡Pedido simulado confirmado!\n\n" +
+        "En un eCommerce real, ahora entrarían en acción " +
+        "el backend, la pasarela de pago y la logística."
+      );
+
+      carrito.length = 0;
+
+      actualizarCarrito();
+
+    }
+
+
+    /* ==============================
+       INICIAR TIENDA
+    ================================ */
+
+    mostrarProductos();
+  </script>
+</body>
+</html>
